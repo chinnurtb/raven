@@ -1,0 +1,18 @@
+%%-*- mode: erlang -*-
+{application, api,
+ [
+  {description, "api"},
+  {vsn, "1"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  inets,
+                  crypto,
+                  mochiweb,
+                  webmachine
+                 ]},
+  {mod, { api_app, []}},
+  {env, []}
+ ]}.
