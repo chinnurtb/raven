@@ -18,11 +18,15 @@ Hacking the code
 ----------------
 
 Build the skeleton application:
+    
     $ make
+    
     - or -
+    
     $ ./rebar compile
     
 Start up the API application:
+    
     $ ./start.sh
 
 
