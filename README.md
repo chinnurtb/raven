@@ -2,7 +2,7 @@ Raven, Multi Activation platform for Ericsson IMS
 =================================================
 
 This project is implementing an activation platform for rapid provisioning
-and migration scenarios, using modern technologies.
+and migration scenarios, providing a RESTfull API.
 
 General notes
 -------------
@@ -18,9 +18,11 @@ Hacking the code
 ----------------
 
 Build the skeleton application:
-   $ make
-   - or -
-   $ ./rebar compile
-
+    $ make
+    - or -
+    $ ./rebar compile
+    
 Start up the API application:
-   $ ./start.sh
+    $ ./start.sh
+    
+
