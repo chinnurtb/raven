@@ -3,11 +3,11 @@
 %% @doc Raven API.
 
 -module(processing_layer).
--compile([export_all]).
+-compile([process_order/0, sv_exists/1]).
 
 
 %%----------------------------------------------------------------------
-%% Function: process_order/2
+%% Function: process_order/0
 %% Purpose: Post RabbitMQ messages to the link layer .
 %% Args:   
 %% Returns:
