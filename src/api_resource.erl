@@ -1,6 +1,6 @@
-%% @author author <author@example.com>
-%% @copyright YYYY author.
-%% @doc Example webmachine_resource.
+%% @author Thomas Elsgaard <thomas.elsgaard@erlangx.com>
+%% @copyright 2012 Thomas Elsgaard.
+%% @doc Raven API.
 
 -module(api_resource).
 -compile([export_all]).
@@ -15,18 +15,19 @@ allowed_methods(RD, Ctx) ->
 
 content_types_provided(RD, Ctx) ->
     {[{"application/json", to_json}], RD, Ctx}.
+    
+%% Webmachine states that each resource is available. To change that behaviour
+%% we implement resource_exists/2 and return true/false if a sv exists.
+resource_exists(RD, Ctx) ->
+    Sv = wrq:path_info(sv, RD),
+    {processing_layer:sv_exists(Sv), RD, Ctx}.
 
 process_post(RD, Ctx) ->
-    %match the correct sv (subscriber view) from Uri
-    case wrq:path_info(sv, RD) of
-        undefinded ->
-            {true, RD, Ctx};
-        
-        "example" -> 
-            Body = json_body(mochiweb_util:parse_qs(wrq:req_body(RD))),
-            {true, wrq:append_to_response_body(Body, RD), Ctx};
-        _->
-            {true, RD, Ctx}
-    end.
-
+    Order = json_body(mochiweb_util:parse_qs(wrq:req_body(RD))),
+    processing_layer:process_order(),
+    {true, wrq:append_to_response_body(Order, RD), Ctx}.
+ 
 json_body(QS) -> mochijson:encode({struct, QS}).
+
+guid() ->
+    binary_to_list(base64:encode(erlang:md5(term_to_binary(self())))).
