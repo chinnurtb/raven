@@ -24,7 +24,7 @@ resource_exists(RD, Ctx) ->
 
 process_post(RD, Ctx) ->
     Order = json_body(mochiweb_util:parse_qs(wrq:req_body(RD))),
-    processing_layer:process_order(),
+    processing_layer:process_activation_order(),
     {true, wrq:append_to_response_body(Order, RD), Ctx}.
  
 json_body(QS) -> mochijson:encode({struct, QS}).
