@@ -38,7 +38,7 @@ process_activation_order() ->
     
 %%----------------------------------------------------------------------
 %% Function: sv_exists/1
-%% Purpose: check is the subscriber vie module is loaded
+%% Purpose: check is the subscriber view module is loaded
 %% Args: Sv is subscriber view name  
 %% Returns: true | false
 %%----------------------------------------------------------------------
@@ -50,5 +50,10 @@ sv_exists(Sv) ->
             false
     end.
     
-    
-    
+%%----------------------------------------------------------------------
+%% Function: sv_list/1
+%% Purpose: list the subscriber view modules loaded
+%% Args: none  
+%% Returns: [sv1,sv2,sv3,sv4...]
+%%----------------------------------------------------------------------
+sv_exists() -> ok.    
