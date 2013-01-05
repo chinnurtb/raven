@@ -4,7 +4,7 @@
 
 
 -module(processing_layer).
--export([process_activation_order/0, sv_exists/1]).
+-export([process_activation_order/0, sv_exists/1, group_create/2, user_create/3]).
 -include("../deps/amqp_client/include/amqp_client.hrl").
 
 
@@ -56,4 +56,14 @@ sv_exists(Sv) ->
 %% Args: none  
 %% Returns: [sv1,sv2,sv3,sv4...]
 %%----------------------------------------------------------------------
-sv_exists() -> ok.    
+sv_exists() -> ok.
+
+
+group_create(Grp_id, Json) ->
+    io:format(Grp_id).
+    %io:format(Json).
+    
+user_create(Grp_id, User_id, Json) ->
+    io:format(Grp_id),
+    io:format(User_id).
+    %io:format(Json).
