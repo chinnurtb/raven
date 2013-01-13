@@ -1,8 +1,8 @@
-Raven, Multi Activation platform for Ericsson IMS
+Raven, Web Console for Ericsson IMS
 =================================================
 
-This project is implementing an activation platform for rapid provisioning
-and migration scenarios, providing a well designed RESTfull API.
+Raven is via a well designed RESTfull API implementing an web console
+for administration of cloud services based on Ericsson IMS.
 
 General notes
 -------------
